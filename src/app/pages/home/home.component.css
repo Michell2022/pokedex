@@ -1,0 +1,76 @@
+.section__container {
+    width: 100%;
+    height: 100vh;
+    background-image: url('/assets/images/primero.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.container h1 {
+    text-align: center;
+}
+
+.container h1 img {
+    width: 90%;
+}
+
+.pokeball__image {
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.pokeball__image img {
+    width: 255px;
+    position: absolute;
+}
+
+.pokeball__image img:nth-child(1) {
+    top: 40px;
+}
+
+.pokeball__image img:nth-of-type(2) {
+    height: 100px;
+    top: 185px;
+    z-index: 100;
+}
+
+.pokeball__image img:nth-last-child(1) {
+    top: 270px;
+}
+
+.pokeball__image input {
+    position: absolute;
+    width: 216px;
+    top: 196px;
+    left: -105px;
+    z-index: 200;
+    padding: 17px 55px 17px 10px;
+    font-size: 1.5rem;
+    background: #000;
+    color: #fff;
+    border: none;
+    outline-style: none;
+}
+
+.input__name {
+    position: relative;
+}
+
+.input__name img.condorito {
+    position: absolute;
+    width: 50px;
+    top: 204px;
+    left: 60px;
+    z-index: 300;
+    cursor: pointer;
+}

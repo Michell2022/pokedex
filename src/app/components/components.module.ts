@@ -12,6 +12,10 @@ import { DetailsComponent } from './details/details.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    DetailsComponent,
+    HeaderComponent
   ]
 })
 export class ComponentsModule { }
