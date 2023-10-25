@@ -4,6 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { BreakingComponent } from './breaking/breaking.component';
 import { FormsModule } from '@angular/forms';
 import { PokedexComponent } from './pokedex/pokedex.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -15,7 +17,9 @@ import { PokedexComponent } from './pokedex/pokedex.component';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    BrowserModule
   ],
   exports: [
     HomeComponent,

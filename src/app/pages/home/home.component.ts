@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   ingresarPokedex() {
     if (this.nombre) {
       localStorage.setItem('nombre', this.nombre);
-      this.router.navigate(['/details'])
+      this.router.navigate(['/pokedex'])
     } else {
       alert('Ingresa un nombre antes de continuar.');
     }

@@ -1,1 +1,37 @@
-<p>pokedex works!</p>
+<div class="section__pokedex">
+
+    <div class="section__pokedex-welcome">
+        <div class="section__pokedex-input">
+            <!-- Input para el buscador -->
+            <input type="text" [(ngModel)]="searchTerm" (input)="search()" placeholder="Ej: Pikachu">
+            <!-- Botón para enviar los datos -->
+            <button (click)="sendData()" [disabled]="searchTerm === '' || noPokemonFound">Enviar datos</button>
+        </div>
+        <!-- Muestra el nombre almacenado en localStorage -->
+        <p>Hola {{ nombre }}, aca podrás encontrar tus <br> Pokemones favoritos!</p>
+    </div>
+
+
+    <div class="card__wrapper">
+        <!-- Grid para mostrar los Pokémon -->
+        <div class="card__pokemon">
+            <!-- Iterar sobre los datos de entrada y mostrar cada Pokémon -->
+            <div *ngFor="let pokemon of filteredPokemons" class="card__pokemon-info" (click)="seleccionarPokemon(pokemon)">
+                <div>
+                    <p># {{pokemon.id}}</p>
+                    <img [src]="pokemon.image" alt="Imagen de Pokemon">
+                </div>
+                <div>
+                    <p>{{pokemon.name}}</p>
+                    <p>Next level: {{pokemon.experiencia}} Exp.</p>
+                    <p class="type" [ngStyle]="{ 'background-color': getTextColor(pokemon.tipoPoke) }">type: {{pokemon.tipoPoke}}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mostrar mensaje si no se encuentra ningún Pokémon -->
+        <div *ngIf="noPokemonFound" class="text-center mt-4">
+            <p>No se encontró ningún Pokémon con ese nombre.</p>
+        </div>
+    </div>
+</div>
