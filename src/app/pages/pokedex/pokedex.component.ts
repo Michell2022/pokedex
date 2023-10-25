@@ -30,7 +30,7 @@ export class PokedexComponent implements OnInit{
   }
 
   getPokemons(): void {
-    for (let i = 1; i <= 150; i++) {
+    for (let i = 1; i <= 100; i++) {
       this.pokemonesService.getPokemones(i).subscribe(
         res => {
           const pokemonInfo = {
@@ -77,7 +77,7 @@ export class PokedexComponent implements OnInit{
     );
 
     if (selectedPokemon) {
-      this.router.navigate(['detalles', selectedPokemon.id]);
+      this.router.navigate(['details', selectedPokemon.id]);
     } else {
       this.noPokemonFound = true;
     }

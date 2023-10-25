@@ -16,7 +16,7 @@
         <!-- Grid para mostrar los Pokémon -->
         <div class="card__pokemon">
             <!-- Iterar sobre los datos de entrada y mostrar cada Pokémon -->
-            <div *ngFor="let pokemon of filteredPokemons" class="card__pokemon-info" (click)="seleccionarPokemon(pokemon)">
+            <div *ngFor="let pokemon of filteredPokemons" class="card__pokemon-info iluminacion" (click)="seleccionarPokemon(pokemon)">
                 <div>
                     <p># {{pokemon.id}}</p>
                     <img [src]="pokemon.image" alt="Imagen de Pokemon">
@@ -30,7 +30,7 @@
         </div>
 
         <!-- Mostrar mensaje si no se encuentra ningún Pokémon -->
-        <div *ngIf="noPokemonFound" class="text-center mt-4">
+        <div *ngIf="noPokemonFound">
             <p>No se encontró ningún Pokémon con ese nombre.</p>
         </div>
     </div>

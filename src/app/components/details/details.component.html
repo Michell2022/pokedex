@@ -1,1 +1,38 @@
-<p>details works!</p>
+<div class="section__container">
+    <h1>Detalles del Pokémon #{{pokemon.id}}</h1>
+    <div class="wrapper">
+        <!-- Fondo de la tarjeta -->
+        <div class="wrapper__fondo" [ngStyle]="{ 'background-color':getTextColor(pokemon.typeOfPokemon1)}"></div>
+
+        <!-- Contenido de la tarjeta -->
+        <div class="wrapper__info">
+            <div class="wrapper__info-hp">
+                <p>{{pokemon.hpName|uppercase}}</p>
+                <p>{{pokemon.hp}}</p>
+            </div>
+
+            <img [src]="pokemon.image" alt="Imagen del Pokémon">
+            <p class="wrapper__info-name">{{pokemon.name}}</p>
+
+            <div class="wrapper__info-type" [ngClass]="{'has-two-items': pokemon.typeOfPokemon2}">
+                <p [ngStyle]="{ 'background-color': getTextColor(pokemon.typeOfPokemon1) }">{{ pokemon.typeOfPokemon1 }}</p>
+                <p *ngIf="pokemon.typeOfPokemon2" [ngStyle]="{ 'background-color': getTextColor(pokemon.typeOfPokemon2) }">{{ pokemon.typeOfPokemon2 }}</p>
+            </div>
+
+            <div class="wrapper__info-statistics">
+                <div>
+                    <p>{{pokemon.attack}}</p>
+                    <span>{{pokemon.attackName}}</span>
+                </div>
+                <div>
+                    <p>{{pokemon.defense}}</p>
+                    <span>{{pokemon.defenseName}}</span>
+                </div>
+                <div>
+                    <p>{{pokemon.speed}}</p>
+                    <span>{{pokemon.speedName}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
