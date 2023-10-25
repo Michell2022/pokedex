@@ -3,12 +3,12 @@
     <div class="section__pokedex-welcome">
         <div class="section__pokedex-input">
             <!-- Input para el buscador -->
-            <input type="text" [(ngModel)]="searchTerm" (input)="search()" placeholder="Ej: Pikachu">
+            <input type="text" [(ngModel)]="searchTerm" (input)="search()" placeholder="Ej: pikachu">
             <!-- Botón para enviar los datos -->
-            <button (click)="sendData()" [disabled]="searchTerm === '' || noPokemonFound">Enviar datos</button>
+            <button (click)="sendData()" class="send" [disabled]="searchTerm === '' || noPokemonFound">Enviar datos</button>
         </div>
         <!-- Muestra el nombre almacenado en localStorage -->
-        <p>Hola {{ nombre }}, aca podrás encontrar tus <br> Pokemones favoritos!</p>
+        <p>Hola <span class="name">{{ nombre | titlecase}}</span>, aca podrás encontrar tus <br> Pokemones favoritos!</p>
     </div>
 
 
@@ -16,13 +16,13 @@
         <!-- Grid para mostrar los Pokémon -->
         <div class="card__pokemon">
             <!-- Iterar sobre los datos de entrada y mostrar cada Pokémon -->
-            <div *ngFor="let pokemon of filteredPokemons" class="card__pokemon-info iluminacion" (click)="seleccionarPokemon(pokemon)">
+            <div *ngFor="let pokemon of filteredPokemons" class="card__pokemon-info" (click)="seleccionarPokemon(pokemon)">
                 <div>
                     <p># {{pokemon.id}}</p>
                     <img [src]="pokemon.image" alt="Imagen de Pokemon">
                 </div>
                 <div>
-                    <p>{{pokemon.name}}</p>
+                    <p class="name">{{pokemon.name}}</p>
                     <p>Next level: {{pokemon.experiencia}} Exp.</p>
                     <p class="type" [ngStyle]="{ 'background-color': getTextColor(pokemon.tipoPoke) }">type: {{pokemon.tipoPoke}}</p>
                 </div>
