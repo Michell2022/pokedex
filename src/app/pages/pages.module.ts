@@ -25,7 +25,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
   ],
   exports: [
     HomeComponent,
-    BreakingComponent
+    BreakingComponent,
+    PokedexComponent
   ]
 })
 export class PagesModule { }
