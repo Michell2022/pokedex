@@ -4,19 +4,25 @@
         <div class="section__pokedex-input">
             <!-- Input para el buscador -->
             <input type="text" [(ngModel)]="searchTerm" (input)="search()" placeholder="Ej: pikachu">
+                    
             <!-- Botón para enviar los datos -->
-            <button (click)="sendData()" class="send" [disabled]="searchTerm === '' || noPokemonFound">Enviar datos</button>
+            <button (click)="sendData()" class="send" [disabled]="searchTerm === '' || noPokemonFound">Ver detalles</button>
+        
+            <!-- Mostrar mensaje si no se encuentra ningún Pokémon -->
+            <span class="section__pokedex-message" *ngIf="noPokemonFound">No se encontró ningún Pokémon con ese nombre.</span>
         </div>
+
+       
         <!-- Muestra el nombre almacenado en localStorage -->
         <p>Hola <span class="name">{{ nombre | titlecase}}</span>, aca podrás encontrar tus <br> Pokemones favoritos!</p>
     </div>
-
 
     <div class="card__wrapper">
         <!-- Grid para mostrar los Pokémon -->
         <div class="card__pokemon">
             <!-- Iterar sobre los datos de entrada y mostrar cada Pokémon -->
-            <div *ngFor="let pokemon of filteredPokemons" class="card__pokemon-info" (click)="seleccionarPokemon(pokemon)">
+            <div *ngFor="let pokemon of filteredPokemons | paginate: { itemsPerPage:20, currentPage:page, totalItems:filteredPokemons.length }"
+            class="card__pokemon-info" (click)="seleccionarPokemon(pokemon)">
                 <div>
                     <p># {{pokemon.id}}</p>
                     <img [src]="pokemon.image" alt="Imagen de Pokemon">
@@ -28,10 +34,9 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Mostrar mensaje si no se encuentra ningún Pokémon -->
-        <div *ngIf="noPokemonFound">
-            <p>No se encontró ningún Pokémon con ese nombre.</p>
-        </div>
+    <div class="section__pokedex-pagination">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
 </div>

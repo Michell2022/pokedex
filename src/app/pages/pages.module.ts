@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { PokedexComponent } from './pokedex/pokedex.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -19,7 +20,8 @@ import { BrowserModule } from '@angular/platform-browser';
     CommonModule,
     FormsModule,
     HttpClientModule,
-    BrowserModule
+    BrowserModule,
+    NgxPaginationModule
   ],
   exports: [
     HomeComponent,

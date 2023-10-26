@@ -1,4 +1,5 @@
 export const PokemonColors: Record<string, string> = {
+    dark: '#808080',
     fire: '#e4604d',
     grass: '#9dd465',
     electric: '#fed32f',

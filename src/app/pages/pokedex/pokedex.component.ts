@@ -13,7 +13,7 @@ export class PokedexComponent implements OnInit{
   originalPokemons: any[] = [];
   filteredPokemons: any[] = [];
   searchTerm = '';
-  currentPage = 1;
+  page = 1;
   noPokemonFound = false;
   nombre!: string;
 
@@ -30,7 +30,7 @@ export class PokedexComponent implements OnInit{
   }
 
   getPokemons(): void {
-    for (let i = 1; i <= 100; i++) {
+    for (let i = 1; i <= 500; i++) {
       this.pokemonesService.getPokemones(i).subscribe(
         res => {
           const pokemonInfo = {
@@ -62,9 +62,12 @@ export class PokedexComponent implements OnInit{
         pokemon.name.toLowerCase().startsWith(this.searchTerm.toLowerCase())
       );
     }
+    this.page = 1;
+    this.noPokemonFound = this.filteredPokemons.length === 0 && this.searchTerm !== '';
   }
 
   search(): void {
+    this.noPokemonFound = false;
     this.filterPokemons();
   }
 
