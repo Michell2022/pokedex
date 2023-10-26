@@ -1,0 +1,30 @@
+.breaking {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.breaking h6 {
+    font-size: 10rem;
+}
+
+.breaking__wrapper {
+    text-align: center;
+}
+
+.breaking__wrapper-button {
+    padding: 8px 80px;
+    background: var(--primary);
+    border: 2px solid var(--primary);
+    color: var(--text-white);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .3s ease;
+    font-size: 1rem;
+}
+
+.breaking__wrapper-button:hover {
+    background: var(--bg-white);
+    color: var(--primary);
+}
