@@ -30,7 +30,7 @@ export class PokedexComponent implements OnInit{
   }
 
   getPokemons(): void {
-    for (let i = 1; i <= 500; i++) {
+    for (let i = 1; i <= 100; i++) {
       this.pokemonesService.getPokemones(i).subscribe(
         res => {
           const pokemonInfo = {
